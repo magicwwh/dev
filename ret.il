@@ -24,9 +24,9 @@ R_PF:bool =
             T_acc:u32 >> 1:u32 ^ T_acc:u32)
 R_SF:bool = high:bool(T_t_109:u32)
 R_ZF:bool = 0:u32 == T_t_109:u32
-addr 0xa @asm "jb     0x0000000000000023"
+addr 0xa @asm "jb     0x000000000000001f"
 label pc_0xa
-cjmp R_CF:bool, 0x23:u32, "nocjmp0"
+cjmp R_CF:bool, 0x1f:u32, "nocjmp0"
 label nocjmp0
 addr 0xc @asm "and    0xf,%al"
 label pc_0xc
@@ -65,22 +65,22 @@ R_PF:bool =
             T_acc_113:u32 >> 1:u32 ^ T_acc_113:u32)
 R_SF:bool = high:bool(T_t_112:u32)
 R_ZF:bool = 0:u32 == T_t_112:u32
-addr 0x19 @asm "jae    0x000000000000001b"
+addr 0x19 @asm "jae    0x000000000000001f"
 label pc_0x19
-cjmp ~R_CF:bool, 0x1b:u32, "nocjmp1"
+cjmp ~R_CF:bool, 0x1f:u32, "nocjmp1"
 label nocjmp1
-addr 0x1f @asm "xchg   %eax,(%esp)"
-label pc_0x1f
+addr 0x1b @asm "xchg   %eax,(%esp)"
+label pc_0x1b
 T_t_114:u32 = R_EAX_32:u32
 R_EAX_32:u32 = mem32:u32?u8[R_ESP_32:u32, e_little]:u32
 mem32:u32?u8 = mem32:u32?u8 with [R_ESP_32:u32, e_little]:u32 = T_t_114:u32
-addr 0x22 @asm "ret    "
-label pc_0x22
+addr 0x1e @asm "ret    "
+label pc_0x1e
 T_ra:u32 = mem32:u32?u8[R_ESP_32:u32, e_little]:u32
 R_ESP_32:u32 = R_ESP_32:u32 + 4:u32
 jmp T_ra:u32 @str "ret"
-addr 0x23 @asm "jmp    0x0000000000000118"
-label pc_0x23
-jmp 0x118:u32
+addr 0x1f @asm "jmp    0x0000000000000114"
+label pc_0x1f
+jmp 0x114:u32
 
 

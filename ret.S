@@ -3,7 +3,7 @@
 	jb L
 	and 0x0F, %al
 	cmp %gs:0x04, %eax
-	jae l
+	jae L
 	xchg (%esp), %eax
 	ret
 L:
